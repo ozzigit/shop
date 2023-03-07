@@ -10,4 +10,21 @@ class Product extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, "categories_products");
+    }
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, "order_products");
+    }
+    public function carts()
+    {
+        return $this->belongsToMany(Cart::class, "cart_product");
+    }
 }

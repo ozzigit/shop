@@ -1,6 +1,7 @@
 <?php
 
-// use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\AdminLoginController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix("admin")->group(function () {
-    Route::get("login", "Auth\AdminLoginController@login")->name(
+    Route::get("login", [AdminLoginController::class, "login"])->name(
         "admin.auth.login"
     );
-    Route::post("login", "Auth\AdminLoginController@loginAdmin")->name(
+    Route::post("login", [AdminLoginController::class, "loginAdmin"])->name(
         "admin.auth.loginAdmin"
     );
-    Route::post("logout", "Auth\AdminLoginController@logout")->name(
+    Route::post("logout", [AdminLoginController::class, "logout"])->name(
         "admin.auth.logout"
     );
 });

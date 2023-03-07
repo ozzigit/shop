@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-use AuthenticatesUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AdminLoginController extends Controller
 {
+    use AuthenticatesUsers;
     protected $redirectTo = "/admin";
     /**
      * Where to redirect users after login.

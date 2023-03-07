@@ -16,10 +16,10 @@ services:
       - './data/docker/web/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini'
     links:
       - laravel_db
-        #      - laravel_redis
+      - laravel_redis
     depends_on:
       - laravel_db
-        #      - laravel_redis
+      - laravel_redis
   laravel_db:
     container_name: laravel-db-container
     build:

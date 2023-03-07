@@ -8,6 +8,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
+    /*
+MariaDB [laravel]> describe categories;
++------------+---------------------+------+-----+---------+----------------+
+| Field      | Type                | Null | Key | Default | Extra          |
++------------+---------------------+------+-----+---------+----------------+
+| id         | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |
+| title      | varchar(75)         | NO   |     | NULL    |                |
+| slug       | varchar(100)        | NO   | UNI | NULL    |                |
+| created_at | timestamp           | YES  |     | NULL    |                |
+| updated_at | timestamp           | YES  |     | NULL    |                |
+| deleted_at | timestamp           | YES  |     | NULL    |                |
++------------+---------------------+------+-----+---------+----------------+
+
+    */
     use HasFactory;
     use SoftDeletes;
     public function products()

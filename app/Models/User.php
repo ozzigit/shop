@@ -10,6 +10,29 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    /*
+    MariaDB [laravel]> describe users;
++-------------------+---------------------+------+-----+---------+----------------+
+| Field             | Type                | Null | Key | Default | Extra          |
++-------------------+---------------------+------+-----+---------+----------------+
+| id                | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |
+| name              | varchar(255)        | NO   |     | NULL    |                |
+| email             | varchar(255)        | NO   | UNI | NULL    |                |
+| email_verified_at | timestamp           | YES  |     | NULL    |                |
+| password          | varchar(255)        | NO   |     | NULL    |                |
+| remember_token    | varchar(100)        | YES  |     | NULL    |                |
+| created_at        | timestamp           | YES  |     | NULL    |                |
+| updated_at        | timestamp           | YES  |     | NULL    |                |
+| first_name        | varchar(255)        | YES  |     | NULL    |                |
+| middle_name       | varchar(255)        | YES  |     | NULL    |                |
+| last_name         | varchar(255)        | YES  |     | NULL    |                |
+| mobile            | varchar(255)        | YES  |     | NULL    |                |
+| adress            | varchar(255)        | YES  |     | NULL    |                |
+| is_admin          | tinyint(4)          | NO   |     | 0       |                |
+| is_blocked        | tinyint(4)          | NO   |     | 0       |                |
+| last_login        | datetime            | YES  |     | NULL    |                |
++-------------------+---------------------+------+-----+---------+----------------+
+*/
     use HasApiTokens, HasFactory, Notifiable;
 
     /**

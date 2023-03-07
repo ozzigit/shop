@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create("cart_products", function (Blueprint $table) {
             $table->id();
-            $table->float("price")->default(0);
             $table->unsignedSmallInteger("quantity")->default(0);
             $table->unsignedBigInteger("cart_id");
             $table->unsignedBigInteger("product_id");

@@ -24,7 +24,6 @@ DROP TABLE IF EXISTS `cart_products`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cart_products` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `price` double(8,2) NOT NULL DEFAULT 0.00,
   `quantity` smallint(5) unsigned NOT NULL DEFAULT 0,
   `cart_id` bigint(20) unsigned NOT NULL,
   `product_id` bigint(20) unsigned NOT NULL,
@@ -63,7 +62,6 @@ DROP TABLE IF EXISTS `categories`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categories` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `product_id` bigint(20) unsigned DEFAULT NULL,
   `title` varchar(75) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -87,8 +85,6 @@ CREATE TABLE `categories_products` (
   `product_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `price` double(8,2) NOT NULL DEFAULT 0.00,
-  `quantity` smallint(5) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `categories_products_category_id_foreign` (`category_id`),
   KEY `categories_products_product_id_foreign` (`product_id`),
@@ -148,7 +144,6 @@ DROP TABLE IF EXISTS `favorites`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `favorites` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) unsigned NOT NULL,
   `product_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -168,7 +163,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,6 +175,7 @@ DROP TABLE IF EXISTS `order_products`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order_products` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `quantity` smallint(5) unsigned NOT NULL DEFAULT 0,
   `order_id` bigint(20) unsigned NOT NULL,
   `product_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -202,11 +198,13 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) unsigned DEFAULT NULL,
-  `status` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `orders_user_id_foreign` (`user_id`),
+  CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -276,8 +274,8 @@ CREATE TABLE `products` (
   `title` varchar(75) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `summary` text DEFAULT NULL,
-  `type` smallint(5) unsigned NOT NULL DEFAULT 0,
-  `price` double(8,2) NOT NULL DEFAULT 0.00,
+  `type` tinyint(4) NOT NULL DEFAULT 0,
+  `price` decimal(8,2) NOT NULL DEFAULT 0.00,
   `in_sale` tinyint(4) NOT NULL DEFAULT 0,
   `content` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -304,7 +302,9 @@ CREATE TABLE `reviews` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `reviews_product_id_foreign` (`product_id`),
+  CONSTRAINT `reviews_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -320,13 +320,15 @@ CREATE TABLE `transactions` (
   `user_id` bigint(20) unsigned NOT NULL,
   `order_id` bigint(20) unsigned NOT NULL,
   `code` varchar(100) NOT NULL,
-  `type` smallint(5) unsigned NOT NULL DEFAULT 0,
-  `mode` smallint(5) unsigned NOT NULL DEFAULT 0,
-  `status` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `type` tinyint(4) NOT NULL DEFAULT 0,
+  `mode` tinyint(4) NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `transactions_user_id_foreign` (`user_id`),
+  CONSTRAINT `transactions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -346,18 +348,17 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `firstName` varchar(255) DEFAULT NULL,
-  `middleName` varchar(255) DEFAULT NULL,
-  `lastName` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `middle_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `mobile` varchar(255) DEFAULT NULL,
   `adress` varchar(255) DEFAULT NULL,
   `is_admin` tinyint(4) NOT NULL DEFAULT 0,
   `is_blocked` tinyint(4) NOT NULL DEFAULT 0,
-  `lastLogin` datetime DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`),
-  UNIQUE KEY `users_mobile_unique` (`mobile`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -369,4 +370,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-07 11:41:47
+-- Dump completed on 2023-03-07 14:16:23

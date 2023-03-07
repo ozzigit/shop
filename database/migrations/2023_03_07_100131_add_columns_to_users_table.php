@@ -11,17 +11,14 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table("users", function (Blueprint $table) {
-            $table->string("firstName")->nullable();
-            $table->string("middleName")->nullable();
-            $table->string("lastName")->nullable();
-            $table
-                ->string("mobile")
-                ->nullable()
-                ->unique();
+            $table->string("first_name")->nullable();
+            $table->string("middle_name")->nullable();
+            $table->string("last_name")->nullable();
+            $table->string("mobile")->nullable();
             $table->string("adress")->nullable();
             $table->tinyInteger("is_admin")->default(0);
             $table->tinyInteger("is_blocked")->default(0);
-            $table->dateTime("lastLogin")->nullable();
+            $table->dateTime("last_login")->nullable();
         });
     }
 
@@ -31,14 +28,14 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table("users", function (Blueprint $table) {
-            $table->dropColumn("firstName");
-            $table->dropColumn("middleName");
-            $table->dropColumn("lastName");
+            $table->dropColumn("first_name");
+            $table->dropColumn("middle_name");
+            $table->dropColumn("last_name");
             $table->dropColumn("mobile");
             $table->dropColumn("adress");
             $table->dropColumn("is_admin");
             $table->dropColumn("is_blocked");
-            $table->dropColumn("lastLogin");
+            $table->dropColumn("last_login");
         });
     }
 };

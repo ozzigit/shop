@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->string("title", 75);
             $table->string("slug", 100)->unique();
             $table->text('summary')->nullable();
-            $table->unsignedSmallInteger('type')->default(0);
-            $table->float('price')->default(0);
+            $table->tinyInteger('type')->default(0);
+            $table->decimal('price',8,2)->default(0);
             $table->tinyInteger('in_sale')->default(0);
             $table->text('content')->nullable();
             $table->timestamps();

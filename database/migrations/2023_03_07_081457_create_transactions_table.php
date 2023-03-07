@@ -4,23 +4,27 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create("transactions", function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('order_id');
-            $table->string('code',100);
-            $table->unsignedSmallInteger('type')->default(0);
-            $table->unsignedSmallInteger('mode')->default(0);
-            $table->unsignedSmallInteger('status')->default(0);
+            $table->unsignedBigInteger("user_id");
+            $table->unsignedBigInteger("order_id");
+            $table->string("code", 100);
+            $table->tinyInteger("type")->default(0);
+            $table->tinyInteger("mode")->default(0);
+            $table->tinyInteger("status")->default(0);
             $table->timestamps();
             $table->softDeletes();
+            $table
+                ->foreign("user_id")
+                ->references("id")
+                ->on("users")
+                ->onDelete("cascade");
         });
     }
 
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists("transactions");
     }
 };

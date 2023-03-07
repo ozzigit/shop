@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id')->nullable();
             $table->string('title',75);
             $table->string("slug", 100)->unique();
             $table->timestamps();

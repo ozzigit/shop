@@ -28,7 +28,6 @@ class User extends Authenticatable
 | last_name         | varchar(255)        | YES  |     | NULL    |                |
 | mobile            | varchar(255)        | YES  |     | NULL    |                |
 | adress            | varchar(255)        | YES  |     | NULL    |                |
-| is_admin          | tinyint(4)          | NO   |     | 0       |                |
 | is_blocked        | tinyint(4)          | NO   |     | 0       |                |
 | last_login        | datetime            | YES  |     | NULL    |                |
 +-------------------+---------------------+------+-----+---------+----------------+

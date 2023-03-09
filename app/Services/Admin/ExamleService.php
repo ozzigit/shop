@@ -1,4 +1,6 @@
 <?php
+/*
+
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // it's examle don't use                  //
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -19,10 +21,8 @@ class ListingService
         $this->repository = $repository;
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     */
+    //  * @param Request $request
+    //  * @return Response
     public function ajaxTable(Request $request): Response
     {
         $listingQuery = $this->repository->getTableQuery($request);
@@ -37,3 +37,5 @@ class ListingService
         ]);
     }
 }
+*/
+?>

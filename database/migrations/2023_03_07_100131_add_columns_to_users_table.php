@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->string("last_name")->nullable();
             $table->string("mobile")->nullable();
             $table->string("adress")->nullable();
-            $table->tinyInteger("is_admin")->default(0);
             $table->tinyInteger("is_blocked")->default(0);
             $table->dateTime("last_login")->nullable();
         });
@@ -33,7 +32,6 @@ return new class extends Migration {
             $table->dropColumn("last_name");
             $table->dropColumn("mobile");
             $table->dropColumn("adress");
-            $table->dropColumn("is_admin");
             $table->dropColumn("is_blocked");
             $table->dropColumn("last_login");
         });

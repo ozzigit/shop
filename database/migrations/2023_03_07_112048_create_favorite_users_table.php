@@ -13,7 +13,6 @@ return new class extends Migration {
         Schema::create("favorite_users", function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger("product_id");
             $table->unsignedBigInteger("favorite_id");
             $table->unsignedBigInteger("user_id");
             $table

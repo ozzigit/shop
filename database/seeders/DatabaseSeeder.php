@@ -12,6 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // $this->call(RoleSeeder::class);
+        // $this->call(AdminSeeder::class);
+        // $this->call(AddRoleSubcontractor::class);
+        // $this->call(TrainerSeeder::class);
+        // $this->call(MainPageSeeder::class);
+        // $this->call(ForumPageSeeder::class);
+        // $this->call(WebinarPageSeeder::class);
+        // $this->call(ContactPageSeeder::class);
+        // $this->call(FeedbackPopupSeeder::class);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

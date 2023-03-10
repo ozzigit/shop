@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 class Admin extends Authenticatable
@@ -23,6 +24,7 @@ MariaDB [laravel]> describe admins;
 */
 
     use Notifiable;
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *

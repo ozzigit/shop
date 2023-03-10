@@ -19,12 +19,12 @@ return new class extends Migration {
             $table->tinyInteger("mode")->default(0);
             $table->tinyInteger("status")->default(0);
             $table->timestamps();
-            $table->softDeletes();
             $table
                 ->foreign("user_id")
                 ->references("id")
                 ->on("users")
                 ->onDelete("cascade");
+            $table->softDeletes();
         });
     }
 

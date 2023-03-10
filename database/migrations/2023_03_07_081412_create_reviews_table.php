@@ -17,12 +17,12 @@ return new class extends Migration {
             $table->tinyInteger("is_published")->default(0);
             $table->tinyInteger("is_visible");
             $table->timestamps();
-            $table->softDeletes();
             $table
                 ->foreign("product_id")
                 ->references("id")
                 ->on("products")
                 ->onDelete("cascade");
+            $table->softDeletes();
         });
     }
 

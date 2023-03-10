@@ -6,7 +6,7 @@ use App\Repositories\ReviewRepository;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class AdminService
+class ReviewService
 {
     private ReviewRepository $repository;
 

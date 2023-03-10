@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\Web\StoreUserRequest;
+use App\Http\Requests\Web\UpdateUserRequest;
 use App\Models\User;
 
 class UserController extends Controller

@@ -27,6 +27,8 @@ class Transaction extends Model
 */
     use HasFactory;
     use SoftDeletes;
+    protected $table = "transactions";
+    protected $guarded = [];
     public function user()
     {
         return $this->belongsTo(User::class);

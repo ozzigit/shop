@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FavoriteUser extends Model
 {
-
     /*
 
     MariaDB [laravel]> describe favorite_users;
@@ -22,4 +22,7 @@ class FavoriteUser extends Model
 +-------------+---------------------+------+-----+---------+----------------+
 */
     use HasFactory;
+    use SoftDeletes;
+    protected $table = "favorite_users";
+    protected $guarded = [];
 }

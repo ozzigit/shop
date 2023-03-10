@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Review extends Model
 {
- /*
+    /*
 
     MariaDB [laravel]> describe reviews;
 +--------------+----------------------+------+-----+---------+----------------+
@@ -27,6 +27,8 @@ class Review extends Model
 
     use HasFactory;
     use SoftDeletes;
+    protected $table = "reviews";
+    protected $guarded = [];
     public function product()
     {
         return $this->belongsTo(Product::class);

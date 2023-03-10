@@ -6,7 +6,7 @@ use App\Repositories\CategoryRepository;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class AdminService
+class CategoryService
 {
     private CategoryRepository $repository;
 

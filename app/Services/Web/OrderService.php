@@ -6,7 +6,7 @@ use App\Repositories\OrderRepository;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class AdminService
+class OrderService
 {
     private OrderRepository $repository;
 

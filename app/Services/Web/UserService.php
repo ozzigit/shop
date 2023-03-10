@@ -6,7 +6,7 @@ use App\Repositories\UserRepository;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class AdminService
+class UserService
 {
     private UserRepository $repository;
 

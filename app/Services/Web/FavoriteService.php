@@ -6,7 +6,7 @@ use App\Repositories\FavoriteRepository;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class AdminService
+class FavoriteService
 {
     private FavoriteRepository $repository;
 

@@ -24,6 +24,8 @@ class Order extends Model
 */
     use HasFactory;
     use SoftDeletes;
+    protected $table = "orders";
+    protected $guarded = [];
 
     public function products()
     {

@@ -6,7 +6,7 @@ use App\Repositories\ProductRepository;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
-class AdminService
+class ProductService
 {
     private ProductRepository $repository;
 

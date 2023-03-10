@@ -24,6 +24,9 @@ MariaDB [laravel]> describe categories;
     */
     use HasFactory;
     use SoftDeletes;
+    protected $table = "categories";
+    protected $guarded = [];
+
     public function products()
     {
         return $this->belongsToMany(Product::class, "categories_products");

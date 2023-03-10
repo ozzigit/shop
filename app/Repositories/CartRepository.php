@@ -11,5 +11,4 @@ class CartRepository extends Repository
     {
         parent::__construct($model);
     }
-
 }

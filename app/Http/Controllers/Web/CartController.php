@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCartRequest;
-use App\Http\Requests\UpdateCartRequest;
+use App\Http\Requests\Web\StoreCartRequest;
+use App\Http\Requests\Web\UpdateCartRequest;
 use App\Models\Cart;
 
 class CartController extends Controller

@@ -27,6 +27,7 @@ return new class extends Migration {
 
             $table->timestamps();
             $table->softDeletes();
+            $table->unique(["category_id", "product_id"]);
         });
     }
 

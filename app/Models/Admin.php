@@ -20,6 +20,7 @@ MariaDB [laravel]> describe admins;
 | remember_token | varchar(100)        | YES  |     | NULL    |                |
 | created_at     | timestamp           | YES  |     | NULL    |                |
 | updated_at     | timestamp           | YES  |     | NULL    |                |
+| deleted_at | timestamp           | YES  |     | NULL    |                |
 +----------------+---------------------+------+-----+---------+----------------+
 */
 

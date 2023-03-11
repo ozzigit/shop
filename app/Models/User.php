@@ -31,6 +31,7 @@ class User extends Authenticatable
 | adress            | varchar(255)        | YES  |     | NULL    |                |
 | is_blocked        | tinyint(4)          | NO   |     | 0       |                |
 | last_login        | datetime            | YES  |     | NULL    |                |
+| deleted_at | timestamp           | YES  |     | NULL    |                |
 +-------------------+---------------------+------+-----+---------+----------------+
 */
     use HasApiTokens, HasFactory, Notifiable;

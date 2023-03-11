@@ -18,6 +18,7 @@ class Cart extends Model
 | user_id    | bigint(20) unsigned | NO   | MUL | NULL    |                |
 | created_at | timestamp           | YES  |     | NULL    |                |
 | updated_at | timestamp           | YES  |     | NULL    |                |
+| deleted_at | timestamp           | YES  |     | NULL    |                |
 +------------+---------------------+------+-----+---------+----------------+
 */
     use HasFactory;

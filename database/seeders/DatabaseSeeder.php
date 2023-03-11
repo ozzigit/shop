@@ -12,15 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call(RoleSeeder::class);
-        // $this->call(AdminSeeder::class);
-        // $this->call(AddRoleSubcontractor::class);
-        // $this->call(TrainerSeeder::class);
-        // $this->call(MainPageSeeder::class);
-        // $this->call(ForumPageSeeder::class);
-        // $this->call(WebinarPageSeeder::class);
-        // $this->call(ContactPageSeeder::class);
-        // $this->call(FeedbackPopupSeeder::class);
+        // don't change call order (in first time create parents data)
+        $this->call(ProductSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(AdminSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(FavoriteSeeder::class);
+        $this->call(ReviewSeeder::class);
+        $this->call(CartSeeder::class);
+        $this->call(OrderSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 

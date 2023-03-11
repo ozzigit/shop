@@ -11,5 +11,4 @@ class AdminRepository extends Repository
     {
         parent::__construct($model);
     }
-
 }

@@ -27,6 +27,7 @@ return new class extends Migration {
                 ->onDelete("cascade");
             $table->timestamps();
             $table->softDeletes();
+            $table->unique(["favorite_id", "user_id"]);
         });
     }
 

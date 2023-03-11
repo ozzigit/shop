@@ -11,13 +11,13 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table("users", function (Blueprint $table) {
-            $table->string("first_name")->nullable();
-            $table->string("middle_name")->nullable();
-            $table->string("last_name")->nullable();
-            $table->string("mobile")->nullable();
-            $table->string("adress")->nullable();
-            $table->tinyInteger("is_blocked")->default(0);
-            $table->dateTime("last_login")->nullable();
+            $table->string("first_name")->nullable()->after('name');
+            $table->string("middle_name")->nullable()->after('name');
+            $table->string("last_name")->nullable()->after('name');
+            $table->string("mobile")->nullable()->after('name');
+            $table->string("adress")->nullable()->after('name');
+            $table->tinyInteger("is_blocked")->default(0)->after('password');
+            $table->dateTime("last_login")->nullable()->after('password');
         });
     }
 

@@ -19,7 +19,6 @@ class ProductFactory extends Factory
         return [
             "title" => $this->faker->sentence(5),
             "slug" => $this->faker->unique()->text(20),
-            "summary" => $this->faker->paragraph($nbSentences = 6),
             "price" => $this->faker->numberBetween($min = 1, $max = 6000),
             "in_sale" => $this->faker->numberBetween($min = 1, $max = 4),
             "content" => $this->faker->paragraph($nbSentences = 8),

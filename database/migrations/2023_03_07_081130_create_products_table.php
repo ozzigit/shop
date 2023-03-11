@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->string("title", 75);
             $table->string("slug", 100)->unique();
-            $table->text('summary')->nullable();
             $table->tinyInteger('type')->default(0);
             $table->decimal('price',8,2)->default(0);
             $table->tinyInteger('in_sale')->default(0);

@@ -1,20 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\StoreProductRequest;
 use App\Http\Requests\Web\UpdateProductRequest;
 use App\Models\Product;
+use App\Services\Web\ProductService;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+
+    public function index(ProductService $service)
     {
-        //
+        dd($service->getAll());
+        // return $service->getAll();
+        return 'fdasjflkadsfas';
     }
 
     /**

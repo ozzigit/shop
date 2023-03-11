@@ -15,12 +15,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get("admin/login", [AdminLoginController::class, "login"])->name(
-    "admin.auth.login"
-);
-Route::post("admin/login", [AdminLoginController::class, "loginAdmin"])->name(
-    "admin.auth.login-admin"
-);
+Route::get("admin/login", [
+    App\Http\Controllers\Auth\AdminLoginController::class,
+    "login",
+])->name("admin.auth.login");
+Route::post("admin/login", [
+    App\Http\Controllers\Auth\AdminLoginController::class,
+    "loginAdmin",
+])->name("admin.auth.login-admin");
+
+
+Route::get("/products", [
+    App\Http\Controllers\Web\ProductController::class,
+    "index",
+])->name("products");
 
 Route::get("/", function () {
     return view("welcome");

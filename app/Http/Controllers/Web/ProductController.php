@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\ProductRequest;
 use App\Models\Product;
+use App\Models\Review;
+use App\Repositories\ProductRepository;
 use App\Services\Web\ProductService;
 
 class ProductController extends Controller
@@ -13,9 +15,16 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
 
-
-    public function index(ProductService $service)
+    public function index(ProductService $service, ProductRepository $repository)
     {
+        $review=Review::find(42);
+        dump($review);
+        $product=Product::find(682);
+        // $product->reviews()->save($review);
+        $review->delete();
+        // $review->delete();
+        // $product->reviews()->delete($review);
+        // dump($repository->one(683)->sync([1,2,3]));
         return "fdasjflkadsfas";
     }
 

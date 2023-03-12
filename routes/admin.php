@@ -1,23 +1,36 @@
 <?php
+// warning
+// in this file name of routes and route links in result become with admin suff
+// home is become admin.home or /home is become /admin/home
 
-namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::post("logout", [AdminLoginController::class, "logout"])->name(
-    "admin.auth.logout"
+    "auth.logout"
 );
 Route::get("/password/reset", [
     AdminLoginController::class,
     "showLinkRequestForm",
-])->name("admin.password.request");
+])->name("password.request");
 Route::post("/password/email", [
     AdminLoginController::class,
     "sendResetLinkEmail",
-])->name("admin.password.email");
+])->name("password.email");
 Route::post("/password/reset", [AdminLoginController::class, "reset"])->name(
-    "admin.password.update"
+    "password.update"
 );
+
+
+Route::get("/home", [
+    AdminController::class,
+    "index",
+])->name("home");
+
+
+
+
 
 // Route::resource("products", [ProductController::class]);
 // Route::resource("users", "UserController");

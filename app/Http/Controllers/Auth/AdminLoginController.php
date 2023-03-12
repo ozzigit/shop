@@ -26,7 +26,7 @@ class AdminLoginController extends Controller
      */
     public function login()
     {
-        return view("auth.adminLogin");
+        return view("auth.admin.login");
     }
     public function loginAdmin(Request $request)
     {
@@ -43,7 +43,7 @@ class AdminLoginController extends Controller
             )
         ) {
             // if successful, then redirect to their intended location
-            return redirect()->intended(route("admin.dashboard"));
+            return redirect()->intended(route("admin.home"));
         }
         // if unsuccessful, then redirect back to the login with the form data
         return redirect()

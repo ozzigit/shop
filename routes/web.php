@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\ReviewController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,11 +25,11 @@ Route::post("admin/login", [
     "loginAdmin",
 ])->name("admin.auth.login-admin");
 
-
-Route::get("/products", [
-    App\Http\Controllers\Web\ProductController::class,
-    "index",
-])->name("products");
+Route::resource("products", ProductController::class);
+// Route::get("/products", [
+//     App\Http\Controllers\Web\ProductController::class,
+//     "index",
+// ])->name("products");
 
 Route::get("/", function () {
     return view("welcome");

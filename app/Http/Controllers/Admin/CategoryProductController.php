@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreCategoryProductRequest;
-use App\Http\Requests\Admin\UpdateCategoryProductRequest;
+use App\Http\Requests\Admin\CategoryProductRequest;
 use App\Models\CategoryProduct;
 
 class CategoryProductController extends Controller
@@ -28,7 +27,7 @@ class CategoryProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryProductRequest $request)
+    public function store(CategoryProductRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class CategoryProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryProductRequest $request, CategoryProduct $categoryProduct)
+    public function update(CategoryProductRequest $request, CategoryProduct $categoryProduct)
     {
         //
     }

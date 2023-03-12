@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreAdminRequest;
-use App\Http\Requests\admin\UpdateAdminRequest;
+use App\Http\Requests\Admin\AdminRequest;
 use App\Models\Admin;
 
 class AdminController extends Controller
@@ -28,7 +27,7 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAdminRequest $request)
+    public function store(AdminRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAdminRequest $request, Admin $admin)
+    public function update(AdminRequest $request, Admin $admin)
     {
         //
     }

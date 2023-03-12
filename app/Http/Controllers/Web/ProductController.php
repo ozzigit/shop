@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Web\StoreProductRequest;
-use App\Http\Requests\Web\UpdateProductRequest;
+use App\Http\Requests\Web\ProductRequest;
 use App\Models\Product;
 use App\Services\Web\ProductService;
 
@@ -17,9 +16,7 @@ class ProductController extends Controller
 
     public function index(ProductService $service)
     {
-        dd($service->getAll());
-        // return $service->getAll();
-        return 'fdasjflkadsfas';
+        return "fdasjflkadsfas";
     }
 
     /**
@@ -33,7 +30,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(ProductRequest $request)
     {
         //
     }
@@ -57,7 +54,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
         //
     }

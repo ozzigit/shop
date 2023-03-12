@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreUserRequest;
-use App\Http\Requests\Admin\UpdateUserRequest;
+use App\Http\Requests\Admin\UserRequest;
 use App\Models\User;
 
 class UserController extends Controller
@@ -28,7 +27,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
+    public function store(UserRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         //
     }

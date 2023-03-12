@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreReviewRequest;
-use App\Http\Requests\Admin\UpdateReviewRequest;
+use App\Http\Requests\Admin\ReviewRequest;
 use App\Models\Review;
 
 class ReviwController extends Controller
@@ -28,7 +27,7 @@ class ReviwController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreReviewRequest $request)
+    public function store(ReviewRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class ReviwController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateReviewRequest $request, Review $review)
+    public function update(ReviewRequest $request, Review $review)
     {
         //
     }

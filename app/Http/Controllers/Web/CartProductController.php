@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Web\StoreCartProductRequest;
-use App\Http\Requests\Web\UpdateCartProductRequest;
+use App\Http\Requests\Web\CartProductRequest;
 use App\Models\CartProduct;
 
 class CartProductController extends Controller
@@ -28,7 +27,7 @@ class CartProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCartProductRequest $request)
+    public function store(CartProductRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class CartProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCartProductRequest $request, CartProduct $cartProduct)
+    public function update(CartProductRequest $request, CartProduct $cartProduct)
     {
         //
     }

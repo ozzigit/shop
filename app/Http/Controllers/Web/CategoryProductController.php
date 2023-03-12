@@ -15,36 +15,11 @@ class CategoryProductController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
 
     /**
      * Display the specified resource.
      */
     public function show(CategoryProduct $categoryProduct)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CategoryProduct $categoryProduct)
-    {
-        //
-    }
-
-    /*
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(CategoryProduct $categoryProduct)
     {
         //
     }

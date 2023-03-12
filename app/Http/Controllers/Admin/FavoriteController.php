@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreFavoriteRequest;
-use App\Http\Requests\Admin\UpdateFavoriteRequest;
+use App\Http\Requests\Admin\FavoriteRequest;
 use App\Models\Favorite;
 
 class FavoriteController extends Controller
@@ -28,7 +27,7 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFavoriteRequest $request)
+    public function store(FavoriteRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class FavoriteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFavoriteRequest $request, Favorite $favorite)
+    public function update(FavoriteRequest $request, Favorite $favorite)
     {
         //
     }

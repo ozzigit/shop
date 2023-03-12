@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreOrderProductRequest;
-use App\Http\Requests\Admin\UpdateOrderProductRequest;
+use App\Http\Requests\Admin\OrderProductRequest;
 use App\Models\OrderProduct;
 
 class OrderProductController extends Controller
@@ -28,7 +27,7 @@ class OrderProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOrderProductRequest $request)
+    public function store(OrderProductRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class OrderProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOrderProductRequest $request, OrderProduct $orderProduct)
+    public function update(OrderProductRequest $request, OrderProduct $orderProduct)
     {
         //
     }

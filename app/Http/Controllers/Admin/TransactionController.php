@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreTransactionRequest;
-use App\Http\Requests\Admin\UpdateTransactionRequest;
+use App\Http\Requests\Admin\TransactionRequest;
 use App\Models\Transaction;
 
 class TransactionController extends Controller
@@ -28,7 +27,7 @@ class TransactionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTransactionRequest $request)
+    public function store(TransactionRequest $request)
     {
         //
     }
@@ -52,7 +51,7 @@ class TransactionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTransactionRequest $request, Transaction $transaction)
+    public function update(TransactionRequest $request, Transaction $transaction)
     {
         //
     }

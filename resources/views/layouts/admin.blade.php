@@ -12,12 +12,22 @@
     @vite(['resources/css/Admin/modern.css'])
 </head>
 <body>
-    <div class="splash active">
-		<div class="splash-icon"></div>
-	</div>
-    <div id="app" >
-        @yield('content')
-    </div>
-    @vite(['resources/js/Admin/app.js' ])
+        <div class="splash active">
+            <div class="splash-icon"></div>
+        </div>
+        @auth
+            <div class="wrapper">
+                @yield('left-bar')
+                @yield('content')
+            </div>
+        @else
+            <div id="app" >
+                @yield('content')
+            </div>
+
+        @endauth
+
+
+
 </body>
 </html>

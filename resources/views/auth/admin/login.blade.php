@@ -76,5 +76,5 @@
             </symbol>
         </defs>
     </svg>
-
+    @vite(['resources/js/Admin/app.js' ])
 @endsection

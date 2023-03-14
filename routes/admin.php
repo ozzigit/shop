@@ -28,7 +28,7 @@ Route::post("/password/reset", [AdminLoginController::class, "reset"])->name(
 
 Route::get("home", [AdminController::class, "index"])->name("home");
 Route::resource("users", UserController::class);
-Route::get("users/{user}/block", [UserController::class, "block"])->name(
+Route::patch("users/{user}/block", [UserController::class, "block"])->name(
     "users.block"
 );
 Route::resource("products", ProductController::class);

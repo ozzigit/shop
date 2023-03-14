@@ -19,6 +19,7 @@
                                 <h5 class="card-title">Users</h5>
                             </div>
                             <div class="card-body">
+
                                 <table id="datatables-column-search-select-inputs" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
@@ -51,8 +52,25 @@
                                             <td class="table-action">
 												<a href="{{ route('admin.users.show',$row->id) }}"><i class="align-middle fas fa-fw fa-eye" title='whach user'></i></a>
 												<a href="{{ route('admin.users.edit',$row->id) }}"><i class="align-middle fas fa-fw fa-pen" title='edit user account'></i></a>
-												<a href="{{ route('admin.users.destroy',$row->id) }}"><i class="align-middle fas fa-fw fa-close" title='block user'></i></a>
-												<a href="{{ route('admin.users.destroy',$row->id) }}"><i class="align-middle fas fa-fw fa-trash" title='delete user'></i></a>
+												<a href="" onclick="event.preventDefault();
+                                                            document.getElementById('block-user-form-{{ $row->id }}').submit();">
+                                                    <i class="align-middle fas fa-fw fa-close" title='block user'></i>
+                                                </a>
+                                                <form id="block-user-form-{{ $row->id }}" action="{{ route('admin.users.block',$row->id) }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                    @method("PATCH")
+                                                </form>
+
+												<a href="" onclick="event.preventDefault();
+                                                            document.getElementById('del-user-form-{{ $row->id }}').submit();">
+                                                    <i class="align-middle fas fa-fw fa-trash" title='del user'></i>
+                                                </a>
+                                                <form id="del-user-form-{{ $row->id }}" action="{{ route('admin.users.destroy',$row->id) }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                    @method("DELETE")
+                                                </form>
 											</td>
                                         </tr>
                                     @endforeach

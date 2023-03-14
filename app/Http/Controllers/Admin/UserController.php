@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserRequest;
+
 use App\Models\User;
 use App\Repositories\UserRepository;
 use App\Services\Admin\UserService;
@@ -22,7 +23,7 @@ class UserController extends Controller
 
     public function block(User $user)
     {
-        # code...
+        dd('block user');
     }
 
     /**
@@ -30,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return 'creation form here';
+        return "creation form here";
     }
 
     /**
@@ -68,8 +69,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $user, UserRequest $request)
     {
-        //
+        $user->delete();
+        return redirect()->back();
+
     }
 }

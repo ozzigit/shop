@@ -5,15 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminRequest;
 use App\Models\Admin;
+use App\Repositories\TransactionRepository;
+use App\Services\Admin\Service;
+use App\Services\Admin\TransactionService;
 
 class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(TransactionService $service_trans)
     {
-        return view('Admin.home');
+        $data = $service_trans->getAll();
+        return view("Admin.home", ["data" => $data]);
     }
 
     /**

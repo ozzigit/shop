@@ -15,14 +15,14 @@ class TransactionSeeder extends Seeder
      */
     public function run(): void
     {
-        $random_max_transactions = 8;
         $arr_of_orders_id = DB::table("orders")
             ->select("id")
             ->pluck("id")
             ->toarray();
+        $random_max_transactions = count($arr_of_orders_id);
 
         //randomizing num of existing orders
-        $rand_num_of_orders = rand($min = 2, $max = $random_max_transactions);
+        $rand_num_of_orders = rand($min = 6, $max = $random_max_transactions);
         $arr_of_random_orsers = array_rand(
             $arr_of_orders_id,
             $rand_num_of_orders
@@ -36,6 +36,7 @@ class TransactionSeeder extends Seeder
                     ->first(),
                 "type" => random_int(0, 4),
                 "status" => random_int(0, 4),
+                "created_at" => now()->addDay(-rand(0, 300)),
             ]);
         }
     }

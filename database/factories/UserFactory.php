@@ -29,6 +29,7 @@ class UserFactory extends Factory
             "first_name" => $this->faker->firstName(),
             "middle_name" => $this->faker->firstName(), // no time to setup locales
             "last_name" => $this->faker->lastName(),
+            "created_at" => now()->addDay(-rand(0, 30)),
         ];
     }
 

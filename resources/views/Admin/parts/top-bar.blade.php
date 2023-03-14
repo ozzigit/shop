@@ -2,11 +2,6 @@
 				<a class="sidebar-toggle d-flex me-2">
 					<i class="hamburger align-self-center"></i>
 				</a>
-
-				<form class="d-none d-sm-inline-block">
-					<input class="form-control form-control-lite" type="text" placeholder="Search products...">
-				</form>
-
 				<div class="navbar-collapse collapse">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item dropdown ms-lg-2">
@@ -14,10 +9,16 @@
 								<i class="align-middle fas fa-cog"></i>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-user"></i> View Profile</a>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-cogs"></i> Settings</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-user-edit"></i> View Profile</a>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-user-plus"></i> Add admin to sistem</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Sign out</a>
+								{{-- <a class="dropdown-item" href="{{ }}"><i class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"></i> Logout</a> --}}
+                                <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="align-middle mr-1 fas fa-fw fa-arrow-alt-circle-right"></i> Logout</a>
+                                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
 							</div>
 						</li>
 					</ul>

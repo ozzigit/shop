@@ -8,7 +8,7 @@ export default defineConfig({
                 "resources/sass/app.scss",
                 "resources/js/app.js",
                 "resources/js/Admin/app.js",
-                "resources/js/Admin/projects-table.js",
+                "resources/js/Admin/table.js",
                 "resources/js/Admin/datetimepicker.js",
                 "resources/js/Admin/vectormap.js",
                 "resources/js/Admin/chartjs-dashboard.js",

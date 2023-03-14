@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $fake_users_count = 50;
+        $fake_users_count = 100;
         User::create([
             "name" => "ozzi",
             "email" => "ozzi@ukr.net",

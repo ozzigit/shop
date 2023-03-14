@@ -19,6 +19,8 @@ class CategoryFactory extends Factory
         return [
             "title" => $this->faker->text(50),
             "slug" => $this->faker->unique()->text(20),
+            "created_at" => now()->addDay(-rand(0, 10)),
+
         ];
     }
 }

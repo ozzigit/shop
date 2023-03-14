@@ -44,6 +44,7 @@ class FavoriteUserSeeder extends Seeder
                     "favorite_id" =>
                         $arr_of_favorites_id[$arr_of_random_favorires],
                     "user_id" => $arr_of_users_id[$i],
+                    "created_at" => now()->addDay(-rand(0, 20)),
                 ]);
                 continue;
             }
@@ -52,6 +53,7 @@ class FavoriteUserSeeder extends Seeder
                     "favorite_id" =>
                         $arr_of_favorites_id[$arr_of_random_favorires[$j]],
                     "user_id" => $arr_of_users_id[$i],
+                    "created_at" => now()->addDay(-rand(0, 20)),
                 ]);
             }
         }

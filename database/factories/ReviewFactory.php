@@ -20,6 +20,7 @@ class ReviewFactory extends Factory
             "rating" => rand($min = 0, $max = 5),
             "is_published" => rand($min = 0, $max = 1),
             "is_visible" => rand($min = 0, $max = 1),
+            "created_at" => now()->addDay(-rand(0, 15)),
         ];
     }
 }

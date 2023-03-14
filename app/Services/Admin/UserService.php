@@ -14,4 +14,9 @@ class UserService
     {
         $this->repository = $repository;
     }
+
+    public function getAll()
+    {
+        return $this->repository->all();
+    }
 }

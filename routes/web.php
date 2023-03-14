@@ -33,7 +33,7 @@ Route::resource("products", ProductController::class);
 
 Route::get("/", function () {
     return view("welcome");
-});
+})->name('shop');
 Auth::routes();
 
 Route::get("/home", [

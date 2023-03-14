@@ -1,6 +1,6 @@
 @section('left-bar')
 		<nav id="sidebar" class="sidebar">
-			<a class="sidebar-brand" href="index.html">
+			<a class="sidebar-brand" href="{{ route('shop') }}">
 				<svg>
 					<use xlink:href="#ion-ios-pulse-strong"></use>
 				</svg>
@@ -8,42 +8,46 @@
 			</a>
 			<div class="sidebar-content">
 				<div class="sidebar-user">
-					<img src="img/avatars/avatar.jpg" class="img-fluid rounded-circle mb-2" alt="Admin photo" />
-					<div class="fw-bold">admin full name</div>
-					<small>ho is admin</small>
+                @if(isset(auth()->user()->photo))
+					<img src="img/avatars/avatar.jpg" class="img-fluid rounded-circle mb-2" alt="{{ auth()->user()->name }} photo" />
+                        @else
+                    <img src="{{ asset('storage/img/no_image.jpg') }}" class="rounded-circle my-n1" alt="Avatar" width="32" height="32">
+                        @endif
+					<div class="fw-bold">{{ auth()->user()->email }}</div>
 				</div>
 
 				<ul class="sidebar-nav">
-					<li class="sidebar-header">
-						Main
-					</li>
 					<li class="sidebar-item active">
-						<a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link">
-							<i class="align-middle me-2 fas fa-fw fa-home"></i> <span class="align-middle">Dashboards</span>
+						<a data-bs-target="#commerce" data-bs-toggle="collapse" class="sidebar-link">
+							<i class="align-middle me-2 fas fa-fw fa-money-check-alt"></i> <span class="align-middle">Commerce</span>
 						</a>
-						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
-							<li class="sidebar-item active"><a class="sidebar-link" href="dashboard-default.html">Default</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.html">Analytics</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
+						<ul id="commerce" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+							<li class="sidebar-item active"><a class="sidebar-link" href="{{ route('admin.transactions.index')}}">Transactions</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.orders.index') }}">Orders</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.favorites.index') }}">Favorites products</a></li>
 						</ul>
 					</li>
 					<li class="sidebar-item">
-						<a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
-							<i class="align-middle me-2 fas fa-fw fa-file"></i> <span class="align-middle">Pages</span>
+						<a data-bs-target="#products" data-bs-toggle="collapse" class="sidebar-link collapsed">
+							<i class="align-middle me-2 fas fa-fw fa-shopping-bag"></i> <span class="align-middle">Products</span>
 						</a>
-						<ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-settings.html">Settings</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-clients.html">Clients <span
-										class="sidebar-badge badge rounded-pill bg-primary">New</span></a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-invoice.html">Invoice</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-pricing.html">Pricing</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-tasks.html">Tasks</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-chat.html">Chat <span
-										class="sidebar-badge badge rounded-pill bg-primary">New</span></a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li>
+						<ul id="products" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.products.index') }}">All products</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.products.create') }}">Add product</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.categories.index') }}">Categories</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.categories.create') }}">Add categorie</a></li>
 						</ul>
 					</li>
 
+					<li class="sidebar-item">
+						<a data-bs-target="#users" data-bs-toggle="collapse" class="sidebar-link collapsed">
+							<i class="align-middle me-2 fas fa-fw fa-users"></i> <span class="align-middle">Users</span>
+						</a>
+						<ul id="users" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.users.index')}}">All users</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{ route('admin.users.create')}}">Add user</a></li>
+						</ul>
+					</li>
 
 				</ul>
 			</div>

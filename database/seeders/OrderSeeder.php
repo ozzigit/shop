@@ -14,7 +14,7 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
-        $random_max_num_of_orders = 3;
+        $random_max_num_of_user_orders = 6;
         //each user can have many or none order
         $arr_of_users_id = DB::table("users")
             ->select("id")
@@ -25,7 +25,7 @@ class OrderSeeder extends Seeder
             //randomizing num of existing orders
             $rand_num_of_orders = rand(
                 $min = 0,
-                $max = $random_max_num_of_orders
+                $max = $random_max_num_of_user_orders
             );
             for ($j = 0; $j < $rand_num_of_orders; $j++) {
                 Order::create([

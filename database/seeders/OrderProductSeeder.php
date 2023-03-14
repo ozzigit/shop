@@ -45,6 +45,7 @@ class OrderProductSeeder extends Seeder
                     "product_id" =>
                         $arr_of_products_id[$arr_of_random_products],
                     "order_id" => $arr_of_orders_id[$i],
+                    "created_at" => now()->addDay(-rand(0, 20)),
                 ]);
                 continue;
             }
@@ -57,6 +58,7 @@ class OrderProductSeeder extends Seeder
                         0,
                         $random_max_num_of_quantity_products_in_order
                     ),
+                    "created_at" => now()->addDay(-rand(0, 20)),
                 ]);
             }
         }

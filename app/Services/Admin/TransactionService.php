@@ -14,5 +14,8 @@ class TransactionService
     {
         $this->repository = $repository;
     }
-
+    public function getAll()
+    {
+        return $this->repository->all();
+    }
 }
